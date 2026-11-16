@@ -9,7 +9,8 @@ pub enum Status {
 
 impl Status {
     /// Todos los estados, en el orden en que se muestran (menús y tablero).
-    pub const ALL: [Status; 3] = [Status::ToDo, Status::Doing, Status::Done];
+    pub const COUNT: usize = 3;
+    pub const ALL: [Status; Status::COUNT] = [Status::ToDo, Status::Doing, Status::Done];
 }
 
 impl Display for Status {

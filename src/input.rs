@@ -29,10 +29,11 @@ pub fn prompt_non_empty(msg: &str) -> String {
 
 /// Pide un número entre 1 y `max` (inclusive) y repite hasta que sea válido.
 /// `max` debe ser >= 1.
+#[flux_rs::sig(fn(msg: &str, max: usize) -> usize{n: 1 <= n && n <= max})]
 pub fn read_option(msg: &str, max: usize) -> usize {
     loop {
         match prompt(msg).parse::<usize>() {
-            Ok(n) if (1..=max).contains(&n) => return n,
+            Ok(n) if n >= 1 && n <= max => return n,
             Ok(_) => println!("Elige un número entre 1 y {}.", max),
             Err(_) => println!("Eso no es un número válido."),
         }

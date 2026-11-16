@@ -5,3 +5,7 @@ edition = "2024"
 
 [dependencies]
 chrono = "0.4.45"
+flux-rs = { git = "https://github.com/flux-rs/flux.git" }
+
+[package.metadata.flux]
+enabled = true

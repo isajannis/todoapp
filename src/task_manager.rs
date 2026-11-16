@@ -16,14 +16,16 @@ impl TaskManager {
 
     // Crea una tarea en estado `ToDo` y devuelve su índice.
     pub fn create_task(&mut self, title: String, description: String) -> usize {
+        let index = self.tasks.len();
         self.tasks.push(Task::new(title, description));
-        self.tasks.len() - 1
+        index
     }
 
     // Agrega una tarea ya construida y devuelve su índice (para los datos precargados)
     pub fn add_task(&mut self, task: Task) -> usize {
+        let index = self.tasks.len();
         self.tasks.push(task);
-        self.tasks.len() - 1
+        index
     }
 
     pub fn get_task(&self, index: usize) -> Option<&Task> {

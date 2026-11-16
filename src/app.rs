@@ -70,7 +70,7 @@ fn tasks_screen(manager: &mut TaskManager, mode: ViewMode) -> Screen {
     };
 
     println!();
-    if view.is_empty() {
+    if view.len() == 0 {
         println!("No hay tareas todavía.");
     } else {
         match mode {
@@ -170,7 +170,7 @@ fn modify_field(manager: &mut TaskManager, index: usize) {
             for (i, s) in Status::ALL.iter().enumerate() {
                 println!("{}. {}", i + 1, s);
             }
-            let new_status = Status::ALL[read_option("> ", Status::ALL.len()) - 1];
+            let new_status = Status::ALL[read_option("> ", Status::COUNT) - 1];
             apply(manager, index, |t| t.set_status(new_status));
             "estado"
         }
